@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "srirammk18/py-flask"
+    registry = "babitham/py.babitha"
     registryCredential = 'dockerhub_id'
     dockerImage = ''
   }
