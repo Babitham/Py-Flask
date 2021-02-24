@@ -1,17 +1,15 @@
-pipeline {
-  environment {
-    registry = "babitham/py.babitha"
-    registryCredential = 'dockerhub_id'
-    dockerImage = ''
+node{
+  
+    checkout scm
+  
+  docker.withRegistry('https://registry.hub.docker,com','dockerHub'){
+    
+    def customImage = docker.build("babitham/dockerwebapp")
+    
+    
+    /* Push the container to the custom Registry */
+    
+    customImage.push()
   }
-  agent none
-  stages {
-    stage('Building image') {
-      steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        }
-      }
-    }
-    }
-  }
+  
+}
