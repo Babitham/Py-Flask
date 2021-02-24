@@ -4,7 +4,7 @@ node{
   
   docker.withRegistry('https://registry.hub.docker,com','dockerHub'){
     
-    def customImage = docker.build("babitham/dockerwebapp")
+    def customImage = docker.build("babitham/py.babitha")
     
     
     /* Push the container to the custom Registry */
