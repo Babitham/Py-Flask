@@ -1,15 +1,13 @@
-node{
   
+node {
+
     checkout scm
-  
-  docker.withRegistry('https://registry.hub.docker.com','dockerHub'){
-    
-    def customImage = docker.build("babitham/python")
-    
-    
-    /* Push the container to the custom Registry */
-    
-    customImage.push()
-  }
-  
+
+    docker.withRegistry('https://registry.hub.docker.com', 'D') {
+
+        def customImage = docker.build("babitham/dockerwebapp")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
+    }
 }
