@@ -1,18 +1,7 @@
 node {
         checkout scm
-
-stage('Docker-push'){
-
-    docker.withRegistry('https://registry.hub.docker.com', 'D') {
-
-        def customImage = docker.build("babitham/k8-kubernets")
-
-        /* Push the container to the custom Registry */
-        customImage.push()
-    }
-}
- stage('Authenticate'){
-  bat '''
+        stage('Authenticate'){
+        bat '''
         ibmcloud --version
         ibmcloud login -–apikey 6FEXjb6h1HBphJJR0AhE5tr4EEmmCB6q21DAqEC_yFGa -r us-south -g Default
         ibmcloud plugin install -f container-service
@@ -23,6 +12,18 @@ stage('Docker-push'){
         
          '''
   }
+
+     stage('Docker-push'){
+
+    docker.withRegistry('https://registry.hub.docker.com', 'D') {
+
+        def customImage = docker.build("babitham/k8-kubernets")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
+    }
+}
+ 
   
   stage('Kubernets pod'){
     bat "ibmcloud ks cluster config --cluster c0sf25ud0fesivtjm07g"
