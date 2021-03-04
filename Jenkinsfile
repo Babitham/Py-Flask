@@ -13,6 +13,7 @@ stage('Docker-push'){
 }
  stage('Authenticate'){
   bat '''
+        ibmcloud --version
         ibmcloud login -–apikey 6FEXjb6h1HBphJJR0AhE5tr4EEmmCB6q21DAqEC_yFGa -r us-south -g Default
         ibmcloud plugin install -f container-service
         ibmcloud plugin install -f container-registry
