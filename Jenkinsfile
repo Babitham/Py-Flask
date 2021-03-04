@@ -12,7 +12,7 @@ stage('Docker-push'){
     }
 }
  stage('Authenticate'){
-  bat ''' ibmcloud login –apikey vbm-cLfnx1PA_iUVFaV5Q1NcE5s9Cw7WbGBbagMjtGQGgff0 -r us-south -g Default
+  bat ''' ibmcloud login -–apikey cLfnx1PA_iUVFaV5Q1NcE5s9Cw7WbGBbagMjtGQGgff0 -r us-south -g Default
         ibmcloud plugin install -f container-service
         ibmcloud plugin install -f container-registry
         ibmcloud plugin install -f observe-service
