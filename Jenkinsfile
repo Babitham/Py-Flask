@@ -11,6 +11,17 @@ stage('Docker-push'){
         customImage.push()
     }
 }
+        stage('Install IBM Cloud CLI') {
+      steps { 
+        bat ''' 
+            curl -fsSL https://clis.cloud.ibm.com/install/linux | bat
+            ibmcloud --version
+            ibmcloud config --check-version=false
+            ibmcloud plugin install -f kubernetes-service
+            ibmcloud plugin install -f container-registry
+            '''
+      }
+   }
  stage('Authenticate'){
   bat ''' ibmcloud login -–apikey cLfnx1PA_iUVFaV5Q1NcE5s9Cw7WbGBbagMjtGQGgff0 -r us-south -g Default
         ibmcloud plugin install -f container-service
