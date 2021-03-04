@@ -17,13 +17,13 @@ stage('Docker-push'){
         ibmcloud plugin install -f container-registry
         ibmcloud plugin install -f observe-service
         ibmcloud plugin list
-        ibmcloud ks  cluster config --cluster c0sf25ud0fesivtjm07g
+        ibmcloud ks cluster config --cluster c0sf25ud0fesivtjm07g
         
          '''
   }
   
   stage('Kubernets pod'){
-    bat "ibmcloud ks  cluster config --cluster c0sf25ud0fesivtjm07g"
+    bat "ibmcloud ks cluster config --cluster c0sf25ud0fesivtjm07g"
     bat "kubectl config current-context"
     bat 'kubectl apply -f servicepy.yaml'
     bat 'kubectl apply -f flask-deployment.yaml'
