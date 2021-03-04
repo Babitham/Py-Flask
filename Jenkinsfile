@@ -10,16 +10,16 @@ stage('Docker-push'){
         /* Push the container to the custom Registry */
         customImage.push()
     }
+}
  stage('Authenticate'){
-  powershell '''  
+  bat '''  
         ibmcloud login –apikey vbm-cLfnx1PA_iUVFaV5Q1NcE5s9Cw7WbGBbagMjtGQGgff0 -r us-south -g Default
         ibmcloud plugin install -f container-service
         ibmcloud plugin install -f container-registry
         ibmcloud plugin install -f observe-service
         ibmcloud plugin list
         ibmcloud ks  cluster config -cluster c0sf25ud0fesivtjm07g
-
-      ...
+         ...
   }
   
   stage('Kubernets pod'){
@@ -30,5 +30,4 @@ stage('Docker-push'){
     bat 'kubectl apply -f flask-deployment.yaml'
     bat 'kubectl get pods'
   }
-
 }
