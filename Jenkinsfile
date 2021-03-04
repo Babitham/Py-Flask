@@ -12,18 +12,16 @@ stage('Docker-push'){
     }
 }
  stage('Authenticate'){
-  bat '''  
-        ibmcloud login –apikey vbm-cLfnx1PA_iUVFaV5Q1NcE5s9Cw7WbGBbagMjtGQGgff0 -r us-south -g Default
+  bat ''' ibmcloud login –apikey vbm-cLfnx1PA_iUVFaV5Q1NcE5s9Cw7WbGBbagMjtGQGgff0 -r us-south -g Default
         ibmcloud plugin install -f container-service
         ibmcloud plugin install -f container-registry
         ibmcloud plugin install -f observe-service
         ibmcloud plugin list
         ibmcloud ks  cluster config -cluster c0sf25ud0fesivtjm07g
-         ...
+         '''
   }
   
   stage('Kubernets pod'){
-    
     bat "ibmcloud ks  cluster config -cluster c0sf25ud0fesivtjm07g"
     bat "kubectl config current-context"
     bat 'kubectl apply -f servicepy.yaml'
