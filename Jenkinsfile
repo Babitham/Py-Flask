@@ -28,8 +28,8 @@ node {
   stage('Kubernets pod'){
     bat "ibmcloud ks cluster config --cluster c0sf25ud0fesivtjm07g"
     bat "kubectl config current-context"
-    bat 'kubectl apply -f servicepy.yaml'
-    bat 'kubectl apply -f flask-deployment.yaml'
+    bat 'kubectl apply -f service.yaml'
+    bat 'kubectl apply -f deployment.yaml'
     bat 'kubectl get pods'
   }
 }
