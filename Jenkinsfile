@@ -17,7 +17,8 @@ stage('Docker-push'){
         ibmcloud plugin install -f container-registry
         ibmcloud plugin install -f observe-service
         ibmcloud plugin list
-        ibmcloud ks  cluster config -cluster c0sf25ud0fesivtjm07g
+        ibmcloud ks  cluster config --cluster c0sf25ud0fesivtjm07g
+        
          '''
   }
   
