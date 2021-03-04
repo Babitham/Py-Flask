@@ -11,7 +11,7 @@ stage('Docker-push'){
         customImage.push()
     }
  stage('Authenticate'){
-   bat ... 
+  powershell '''  
         ibmcloud login –apikey vbm-cLfnx1PA_iUVFaV5Q1NcE5s9Cw7WbGBbagMjtGQGgff0 -r us-south -g Default
         ibmcloud plugin install -f container-service
         ibmcloud plugin install -f container-registry
