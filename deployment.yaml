@@ -15,4 +15,4 @@ spec:
       - name: myapp
         image: babitha/k8-1
         ports:
-        - containerPort: 5001
+        - containerPort: 30017
