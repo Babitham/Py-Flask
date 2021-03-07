@@ -3,7 +3,7 @@ node {
         stage('Authenticate'){
         bat '''
         ibmcloud --version
-        ibmcloud login --apikey "X4YucS-zDUxFPMlsiP1pftXGc2E_E_4NDq4Hj-iyRNnG" -r us-south -g Default
+        ibmcloud login --apikey "NDHdSwRG4hMOLfJGi7-UPWa9qEfbUNVokZNPc5Iyrejb" -r us-south -g Default
         ibmcloud plugin install -f container-service
         ibmcloud plugin install -f container-registry
         ibmcloud plugin install -f observe-service
