@@ -13,6 +13,18 @@ node {
          '''
   }
 
+     stage('Docker-push'){
+
+    docker.withRegistry('https://registry.hub.docker.com', 'D') {
+
+        def customImage = docker.build("babitham/k8-kubernets")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
+    }
+}
+ 
+  
   stage('Kubernets pod'){
     bat "ibmcloud ks cluster config --cluster c0sf25ud0fesivtjm07g"
     bat "kubectl config current-context"
