@@ -7,5 +7,5 @@ spec:
         name: k8-1
     ports:
        - protocol: TCP
-         port: 30017
-         targetPort: 30017
+         port: 80
+         targetPort: 5000
