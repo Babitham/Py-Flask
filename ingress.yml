@@ -13,7 +13,7 @@ spec:
       - backend:
           serviceName: pyapp-service
           servicePort: 80
-  - host: myapp.nitesh.com
+  - host: myapp.babitha.com
     http:
       paths:
       - backend:
