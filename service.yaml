@@ -11,8 +11,10 @@ spec:
          port: 80
          targetPort: 5000
    type: LoadBalancer
-status:
-  LoadBalancer:
-    ingress:
-    - ip: 192.0.2.127
-    - externalIPs: 172.168.0.1
+status: 
+  LoadBalancer: 
+    ingress: 
+      - 
+        ip: "192.0.2.127"
+      - 
+        externalIPs: "172.168.0.1"
