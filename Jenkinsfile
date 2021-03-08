@@ -30,6 +30,7 @@ node {
     bat "kubectl config current-context"
     bat 'kubectl apply -f service.yaml'
     bat 'kubectl apply -f deployment.yaml'
+    bat 'kubectl apply -f ingress.yml'
     bat 'kubectl get pods'
   }
 }
